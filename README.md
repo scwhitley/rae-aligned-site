@@ -50,7 +50,7 @@ Netlify Forms handles both forms with a honeypot for spam protection:
 - `contact`: general inquiries.
 - `notary-request`: requires the signing address, document type, number of signatures and signers, the photo-ID confirmation, and the **travel-fee agreement checkbox** (North Carolina requires written agreement before travel).
 
-In Netlify, go to **Site configuration → Notifications → Form submission notifications**. Send `contact` to info@ and `notary-request` to notary@.
+In Netlify, open **Forms**, turn on **Enable form detection** and redeploy once. Then under **Forms → Submission notifications**, send `contact` to info@ and `notary-request` to notary@.
 
 ## Photography (shoot booked)
 
