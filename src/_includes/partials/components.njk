@@ -13,7 +13,7 @@
 {% endmacro %}
 
 {#- Photo slot: reserves the space at a fixed aspect ratio. Until the shoot files arrive it shows the
-    colour-and-type treatment; pass src (path without extension) to drop a photo in. -#}
+    color-and-type treatment; pass src (path without extension) to drop a photo in. -#}
 {% macro photoSlot(ratio="4 / 5", tone="tint", src="", alt="") %}
   <figure class="photo-slot tone-{{ tone }}{% if not src %} is-empty{% endif %}" style="aspect-ratio: {{ ratio }}">
     {%- if src %}
