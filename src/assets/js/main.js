@@ -56,7 +56,7 @@
           done.focus();
         })
         .catch(function () {
-          err.textContent = 'Your message didn’t send. Please try again, or email info@raealignedservices.com.';
+          err.textContent = 'Your message didn’t send. Please try again, or email raven@raealignedservices.com.';
         })
         .finally(function () { submit.disabled = false; });
     });
