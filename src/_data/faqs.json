@@ -1,0 +1,25 @@
+{
+  "_README": "Notary FAQs shown on /notary. Add, edit or reorder items; each needs a q and an a.",
+  "notary": [
+    {
+      "q": "How much does a notarization cost?",
+      "a": "North Carolina sets notary fees by law: $10.00 per signature for acknowledgments, jurats, verifications and proofs, and $10.00 per person for an oath or affirmation."
+    },
+    {
+      "q": "Do you charge for travel?",
+      "a": "If I come to you, travel is billed at actual mileage at the current federal business mileage rate. You agree to it in writing before the appointment. That's a North Carolina requirement, not a preference. There is no flat travel fee."
+    },
+    {
+      "q": "Should I sign my document before you arrive?",
+      "a": "No. Bring it unsigned. I have to watch you sign it."
+    },
+    {
+      "q": "What do I need to bring?",
+      "a": "A valid, unexpired photo ID for every signer, your unsigned document, and everyone who needs to sign, present at the appointment."
+    },
+    {
+      "q": "Can you tell me which form I need, or explain my document?",
+      "a": "No. A notary cannot choose documents, explain what a document means, or advise whether to sign it. If you need that, you need an attorney, and I'll tell you so."
+    }
+  ]
+}

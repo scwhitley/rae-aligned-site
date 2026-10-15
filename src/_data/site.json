@@ -1,0 +1,46 @@
+{
+  "_README": "Site-wide settings. Raven can edit this file directly on GitHub; Netlify republishes in about a minute.",
+
+  "name": "RaeAligned Strategic Services",
+  "division": "RaeAligned Signing Solutions",
+  "url": "https://raealignedservices.com",
+  "founder": "Raven Whitley",
+  "founderTitle": "Founder & Principal Strategist",
+  "credentials": "M.Ed., PMP, CSM®",
+  "region": "Raleigh–Durham, North Carolina",
+  "email": "info@raealignedservices.com",
+  "notaryEmail": "notary@raealignedservices.com",
+  "instagram": "raealigned.services",
+  "instagramUrl": "https://www.instagram.com/raealigned.services/",
+
+  "_LLC_NOTE": "LLC is NOT approved yet. When the state approves it: set llcApproved to true and change legalLine to '© 2026 RaeAligned Strategic Services LLC. All rights reserved.' Nothing else needs to change.",
+  "llcApproved": false,
+  "legalLine": "© 2026 RaeAligned Strategic Services. All rights reserved.",
+  "divisionEndorsement": "A division of RaeAligned Strategic Services LLC",
+  "notaryDisclaimer": "RaeAligned Signing Solutions provides notary and signing services. A notary is not an attorney and cannot give legal advice.",
+
+  "booking": {
+    "_NOTE": "Booking buttons are one reusable component. To switch tools (e.g. to Acuity), change the url here. mode: 'link' opens the scheduler; 'embed' shows it inside the page.",
+    "consulting": {
+      "provider": "Google Appointment Schedules",
+      "mode": "link",
+      "url": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ30FQMg6cExGTAHA92XcvocdiYn3LDRTGVpFHII8bo_9UffWneibTw-ITC1Av4e2S6c3v1ai-3q"
+    },
+    "notary": {
+      "provider": "Square Appointments",
+      "mode": "link",
+      "url": ""
+    }
+  },
+
+  "features": {
+    "_NOTE": "Turn sections on when the content exists.",
+    "testimonials": false,
+    "blog": false
+  },
+
+  "analytics": {
+    "_NOTE": "Privacy-friendly analytics. Add the domain registered in Plausible to switch it on.",
+    "plausibleDomain": ""
+  }
+}

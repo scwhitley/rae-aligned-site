@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="/assets/logos/raealigned-reversed.svg" alt="{{ site.name }}" width="867" height="560">
+      </div>
+      <nav aria-label="Footer">
+        <h2 class="foot-h">Pages</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/notary/">Notary</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="foot-h">Contact</h2>
+        <ul>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li>Raleigh–Durham, NC</li>
+          <li><a href="{{ site.instagramUrl }}" target="_blank" rel="noopener">@{{ site.instagram }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-disclaimer">{{ site.notaryDisclaimer }}{% if site.llcApproved %} {{ site.division }} is {{ site.divisionEndorsement | lower }}.{% endif %}</p>
+    <div class="foot-legal">
+      <span>{{ site.legalLine }}</span>
+      <a href="/privacy/">Privacy policy</a>
+    </div>
+  </div>
+</footer>

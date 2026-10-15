@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <section class="hero hero-page hero-text">
+    <div class="wrap">
+      <p class="eyebrow">Notes</p>
+      <h1>{{ title }}</h1>
+      {% if description %}<p class="lede">{{ description }}</p>{% endif %}
+    </div>
+  </section>
+  <section class="band"><div class="wrap prose">{{ content | safe }}</div></section>
+</article>

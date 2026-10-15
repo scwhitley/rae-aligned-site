@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+permalink: /services/
+title: "Services | Strategy, Projects, AI, Planning & Systems | RaeAligned"
+description: "Business strategy, project management, AI enablement, planning and coordination, and practical systems for individuals and small businesses in Raleigh–Durham."
+accent: copper
+---
+{% import "partials/components.njk" as c with context %}
+
+<section class="hero hero-page hero-text">
+  <div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h1>What I help with</h1>
+    <p class="lede">Six ways to get important work moving. Most clients start with one.</p>
+    <nav class="jump" aria-label="Services on this page">
+      {%- for s in services %}<a href="{{ s.link or ('#' + s.slug) }}">{{ s.short }}</a>{% endfor %}
+    </nav>
+  </div>
+</section>
+
+<section class="band" aria-label="Service lines">
+  <div class="wrap svc-list">
+    {%- for s in services %}
+    <article class="svc-row" id="{{ s.slug }}">
+      <div class="svc-row-head">
+        <span class="svc-num" aria-hidden="true">{{ loop.index }}</span>
+        <h2>{{ s.name }}</h2>
+      </div>
+      <div class="svc-row-body">
+        <p class="svc-summary">{{ s.summary }}</p>
+        {%- if s.detail %}<p>{{ s.detail }}</p>{% endif %}
+        {%- if s.goodFit %}<p class="fit"><b>Good fit if</b> {{ s.goodFit }}</p>{% endif %}
+        {%- if s.link %}<a class="text-link" href="{{ s.link }}">See the notary page for details</a>{% endif %}
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="band band-stone" aria-labelledby="eng-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ways to work together</p>
+      <h2 id="eng-h">Engagement types</h2>
+    </div>
+    <div class="eng-grid">
+      <div class="eng"><h3>A single session</h3><p>Two hours, one focused problem, and a clean one-page plan you leave with.</p></div>
+      <div class="eng"><h3>A project</h3><p>Defined work, a defined outcome, and a timeline.</p></div>
+      <div class="eng"><h3>Ongoing support</h3><p>Regular time each month for planning, coordination, and keeping work moving.</p></div>
+    </div>
+    <div class="pricing-note">
+      <h3>On pricing</h3>
+      <p>Engagements range from a single two-hour session to ongoing monthly support. I'll give you a clear price after we talk about what you need. No packages you have to squeeze into.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band cta-band" aria-labelledby="svc-cta-h">
+  <div class="wrap cta-in">
+    <h2 id="svc-cta-h">Tell me what you're working on</h2>
+    <p>Send a note, or book a time to talk it through.</p>
+    <div class="actions center">
+      <a class="btn btn-dark" href="/contact/">Tell me what you're working on <span class="arrow" aria-hidden="true">→</span></a>
+      {{ c.booking("consulting", "Book a call", "btn-line") }}
+    </div>
+  </div>
+</section>

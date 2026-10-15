@@ -1,0 +1,4 @@
+{
+  "_README": "Real client testimonials only, with permission. Add items like {\"quote\": \"...\", \"name\": \"First L.\", \"context\": \"Small business owner\"}, then set features.testimonials to true in site.json.",
+  "items": []
+}

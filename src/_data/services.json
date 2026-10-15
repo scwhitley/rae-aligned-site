@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "strategy",
+    "short": "Strategy",
+    "name": "Business strategy & advisory",
+    "card": "Deciding what to do first when everything feels urgent. Goals, priorities, and a realistic next step.",
+    "summary": "Clarifying goals, priorities, service ideas, and practical next steps.",
+    "detail": "You can't do nine things at once. Strategy is picking what matters most right now, deciding what can wait, and being honest about the difference. For entrepreneurs, small businesses, teams, and organizations.",
+    "goodFit": "everything on your list feels urgent, or you've been going in circles on the same decision."
+  },
+  {
+    "slug": "projects",
+    "short": "Projects",
+    "name": "Project management & implementation",
+    "card": "Taking something from \"we should do that\" to finished. Planning, organizing, coordinating, and keeping it moving.",
+    "summary": "Planning projects, organizing the work, coordinating people, tracking timelines, and getting things finished.",
+    "detail": "Most plans run late because they're built forward from today. I build backward from the date, so you find out in week one whether the timeline was ever real.",
+    "goodFit": "something important has been \"almost ready\" for months."
+  },
+  {
+    "slug": "ai",
+    "short": "AI",
+    "name": "AI enablement",
+    "card": "Using AI in your business without being technical. Practical uses, simple workflows, and guidance you'll actually follow.",
+    "summary": "Finding practical ways to use AI in your business, building simple workflows, and writing guidance people will actually follow.",
+    "detail": "I'm not an engineer and I don't build models. I help regular businesses figure out which parts of their week a tool can take off their plate, and how to actually use it instead of signing up and forgetting.",
+    "goodFit": "you know you should be using AI somewhere and have no idea where to start."
+  },
+  {
+    "slug": "planning",
+    "short": "Planning & coordination",
+    "name": "Planning & coordination",
+    "card": "Openings, events, launches, moves. The timeline, the pieces, and someone holding the whole thing.",
+    "summary": "Structure for launches, events, openings, moves, and initiatives that need a timeline and someone holding the pieces.",
+    "detail": "An event isn't one big job. It's forty small ones wearing a single name. Things fall apart because nobody was holding the whole thing.",
+    "goodFit": "you have a date on the calendar and a growing list of unanswered questions."
+  },
+  {
+    "slug": "systems",
+    "short": "Systems",
+    "name": "Systems & workflow support",
+    "card": "So you stop rebuilding the same thing over and over. Templates, checklists, trackers, and routines you'll use.",
+    "summary": "Practical processes, templates, trackers, documentation, and routines that make work repeatable.",
+    "detail": "\"I need a better system\" usually means four things: a form you reuse, a list of what's done, a checklist, and the steps written down. Not new software.",
+    "goodFit": "one person is the only one who knows how something gets done. That's not a system. That's a risk."
+  },
+  {
+    "slug": "notary",
+    "short": "Notary & signing",
+    "name": "Notary & signing services",
+    "card": "Appointment-based notary services through RaeAligned Signing Solutions.",
+    "summary": "Appointment-based notarization through RaeAligned Signing Solutions.",
+    "detail": "",
+    "goodFit": "",
+    "link": "/notary/"
+  }
+]

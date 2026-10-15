@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+title: "About Raven Whitley | RaeAligned Strategic Services"
+description: "Raven Whitley, M.Ed., PMP, CSM® — Founder & Principal Strategist. Enterprise project leadership experience, now helping individuals and small businesses finish what they started."
+accent: copper
+schema:
+  "@context": "https://schema.org"
+  "@type": Person
+  name: Raven Whitley
+  jobTitle: "Founder & Principal Strategist"
+  honorificSuffix: "M.Ed., PMP, CSM®"
+  worksFor: { "@id": "https://raealignedservices.com/#business" }
+  url: "https://raealignedservices.com/about/"
+---
+{% import "partials/components.njk" as c with context %}
+
+<section class="hero hero-page">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Raven</h1>
+      <p class="lede">I help people finish what they started.</p>
+    </div>
+    {#- Reserved for the seated or hero portrait from the shoot. Do not use the 400px headshot here. -#}
+    {{ c.photoSlot("4 / 5", "ink") }}
+  </div>
+</section>
+
+<section class="band" aria-label="Background">
+  <div class="wrap prose-grid">
+    <div class="prose">
+      <p>I'm Raven Whitley, founder of RaeAligned Strategic Services.</p>
+      <p>My background is enterprise project and implementation leadership: program structure, keeping a lot of people working from the same plan, communications, training, and measuring whether any of it actually landed. Most recently I led logistics, training, communications, measurement, and senior-leader coordination for a large enterprise AI enablement program.</p>
+      <p>That work taught me something I didn't expect. The failure modes are identical at every scale. A Fortune 500 program and a two-person business get stuck for the same reasons: the goal was never clearly stated, nobody owned the next step, and there was no system to catch it when the date slipped.</p>
+      <p class="pull-inline">The scale changes. The missing pieces don't.</p>
+      <p>RaeAligned exists to put those pieces in place for people who don't have a project management office: the shop owner who knows the system is broken, the person launching a service who doesn't know where to start, the organization with a big initiative and no one holding the shape of it.</p>
+      <p>Some clients work with me for months. Some book one session and leave with a one-page plan. Both are real engagements.</p>
+    </div>
+    <aside class="cred-card" aria-labelledby="cred-h">
+      <h2 id="cred-h" class="eyebrow">Credentials</h2>
+      <dl>
+        <div><dt>M.Ed.</dt><dd>Education</dd></div>
+        <div><dt>PMP</dt><dd>Project Management Professional</dd></div>
+        <div><dt>CSM®</dt><dd>Certified ScrumMaster</dd></div>
+        <div><dt>Notary</dt><dd>Commissioned North Carolina Notary Public</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="band band-ink" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How I work</p>
+      <h2 id="how-h">How I work</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how"><h3>I start with what's actually stuck.</h3><p>Not a discovery process. A conversation about what you're trying to move and what's in the way.</p></div>
+      <div class="how"><h3>I give you something usable quickly.</h3><p>A plan, a system, a structure. Something you can act on, not a report you file.</p></div>
+      <div class="how"><h3>I'm direct.</h3><p>If something isn't going to work, I'll say so. If the timeline isn't real, you'll find out in week one rather than week nine.</p></div>
+    </div>
+  </div>
+</section>
+
+{{ c.ctaBand("Let's talk about your work", "Tell me what you're trying to move and what's in the way.", "Let's talk about your work") }}

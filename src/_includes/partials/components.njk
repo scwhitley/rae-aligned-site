@@ -1,0 +1,96 @@
+{#- Reusable section patterns. Pages assemble from these so phase-two pages need no new design. -#}
+
+{#- Booking: one component for every booking button. Provider and URL live in _data/site.json. -#}
+{% macro booking(kind, label, cls="btn-dark") %}
+  {%- set b = site.booking[kind] -%}
+  {%- if b.url and b.mode == "embed" -%}
+    <div class="booking-embed"><iframe src="{{ b.url }}{% if '?' in b.url %}&amp;{% else %}?{% endif %}gv=true" title="{{ label }}: {{ b.provider }}" loading="lazy"></iframe></div>
+  {%- elif b.url -%}
+    <a class="btn {{ cls }}" href="{{ b.url }}" target="_blank" rel="noopener">{{ label }} <span class="arrow" aria-hidden="true">→</span></a>
+  {%- else -%}
+    <a class="btn {{ cls }}" href="#notary-request">{{ label }} <span class="arrow" aria-hidden="true">→</span></a>
+  {%- endif -%}
+{% endmacro %}
+
+{#- Photo slot: reserves the space at a fixed aspect ratio. Until the shoot files arrive it shows the
+    colour-and-type treatment; pass src (path without extension) to drop a photo in. -#}
+{% macro photoSlot(ratio="4 / 5", tone="tint", src="", alt="") %}
+  <figure class="photo-slot tone-{{ tone }}{% if not src %} is-empty{% endif %}" style="aspect-ratio: {{ ratio }}">
+    {%- if src %}
+    <picture><source srcset="{{ src }}.webp" type="image/webp"><img src="{{ src }}.jpg" alt="{{ alt }}" loading="lazy" decoding="async"></picture>
+    {%- else %}
+    <img class="slot-mark" src="/assets/logos/raealigned-icon-{{ 'only' if tone == 'tint' else 'reversed' }}.svg" alt="" width="516" height="406">
+    {%- endif %}
+  </figure>
+{% endmacro %}
+
+{% macro serviceCard(s) %}
+  <article class="svc-card">
+    <h3>{{ s.short }}</h3>
+    <p>{{ s.card }}</p>
+    {%- if s.link %}<a class="text-link" href="{{ s.link }}">Notary details</a>{% endif %}
+  </article>
+{% endmacro %}
+
+{#- Legal-advice boundary. Must stay visible on any page that offers notary services. -#}
+{% macro complianceBlock() %}
+  <div class="cando">
+    <div class="cando-do">
+      <h3>What I do</h3>
+      <ul>
+        <li>Check your identification</li>
+        <li>Watch you sign</li>
+        <li>Complete and stamp the notarial certificate</li>
+      </ul>
+      <p class="cando-note">Acknowledgments, jurats, verifications, proofs, and oaths.</p>
+    </div>
+    <div class="cando-dont">
+      <h3>What I cannot do</h3>
+      <ul>
+        <li>Choose a document for you</li>
+        <li>Explain what a document means or what it will do</li>
+        <li>Advise you on whether to sign</li>
+      </ul>
+    </div>
+  </div>
+  <p class="boundary">A notary verifies identity, witnesses signatures, and completes the notarial certificate. A notary cannot choose documents or give legal advice. If you need that, you need an attorney, and I'll tell you so.</p>
+{% endmacro %}
+
+{% macro notaryBand() %}
+  <section class="band band-aubergine notary-band" aria-labelledby="notary-band-h">
+    <div class="wrap notary-band-in">
+      <img class="division-mark" src="/assets/logos/signing-wordmark-reversed.svg" alt="{{ site.division }}: Notary &amp; Signing Services" width="857" height="352" loading="lazy">
+      <div class="notary-band-copy">
+        <h2 id="notary-band-h">Need something notarized?</h2>
+        <p>I'm a commissioned North Carolina notary public serving the Raleigh–Durham area by appointment. I come to you.</p>
+        <a class="btn btn-ivory" href="/notary/">Notary &amp; signing services <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro ctaBand(heading, body, label, href="/contact/") %}
+  <section class="band cta-band" aria-label="{{ heading }}">
+    <div class="wrap cta-in">
+      <h2>{{ heading }}</h2>
+      <p>{{ body }}</p>
+      <a class="btn btn-dark" href="{{ href }}">{{ label }} <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro testimonials() %}
+  {%- if site.features.testimonials and testimonialsData.items.length %}
+  <section class="band" aria-labelledby="t-h">
+    <div class="wrap">
+      <p class="eyebrow">Kind words</p>
+      <h2 id="t-h">What clients say</h2>
+      <div class="quotes">
+        {%- for t in testimonialsData.items %}
+        <figure class="quote"><blockquote>{{ t.quote }}</blockquote><figcaption><b>{{ t.name }}</b> · {{ t.context }}</figcaption></figure>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+{% endmacro %}

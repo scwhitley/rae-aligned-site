@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: "Notes | RaeAligned Strategic Services"
+description: "Practical notes on planning, projects, systems and AI for small businesses."
+accent: copper
+---
+{#- Blog shell. Hidden until site.features.blog is true. Posts go in src/blog/posts/ as Markdown. -#}
+<section class="hero hero-page hero-text">
+  <div class="wrap">
+    <p class="eyebrow">Notes</p>
+    <h1>Notes</h1>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap post-list">
+    {%- for post in collections.posts %}
+    <article class="post-item"><a href="{{ post.url }}"><h2>{{ post.data.title }}</h2><p>{{ post.data.description }}</p></a></article>
+    {%- else %}
+    <p>No posts yet.</p>
+    {%- endfor %}
+  </div>
+</section>

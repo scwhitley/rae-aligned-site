@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+permalink: /contact/
+title: "Contact | RaeAligned Strategic Services"
+description: "Get in touch about strategy, project support, systems, or notary services in the Raleigh–Durham area."
+accent: copper
+---
+{% import "partials/components.njk" as c with context %}
+
+<section class="hero hero-page hero-text">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Let's talk</h1>
+    <p class="lede">Tell me what you're trying to move and what's in the way. That's the whole first conversation.</p>
+  </div>
+</section>
+
+<section class="band" aria-label="Contact form and details">
+  <div class="wrap form-grid">
+    <form class="form" id="contact" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+      <div class="field"><label for="c-name">Name <span class="req">required</span></label><input id="c-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="c-email">Email <span class="req">required</span></label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="c-topic">What can I help with?</label>
+        <select id="c-topic" name="topic">
+          <option>Strategy</option><option>Projects</option><option>AI</option><option>Planning</option><option>Systems</option><option>Notary</option><option selected>Not sure</option>
+        </select>
+      </div>
+      <div class="field full"><label for="c-msg">Tell me about it <span class="req">required</span></label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
+      <p class="full small">By sending this form you agree to the <a href="/privacy/">privacy policy</a>. Booking a notary appointment? Use the <a href="/notary/#book">notary request form</a> so I have everything I need.</p>
+      <div class="form-foot full">
+        <button class="btn btn-dark" type="submit">Send</button>
+        <p class="form-error" role="alert"></p>
+      </div>
+      <p class="form-done full" role="status" hidden>Thanks. I'll get back to you within one business day.</p>
+    </form>
+
+    <aside class="direct">
+      <dl>
+        <div><dt>General enquiries</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+        <div><dt>Notary appointments</dt><dd><a href="mailto:{{ site.notaryEmail }}">{{ site.notaryEmail }}</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="{{ site.instagramUrl }}" target="_blank" rel="noopener">@{{ site.instagram }}</a></dd></div>
+        <div><dt>Service area</dt><dd>Raleigh–Durham and surrounding areas, North Carolina</dd></div>
+      </dl>
+      <div class="direct-book">
+        <p>Rather pick a time?</p>
+        {{ c.booking("consulting", "Book a call", "btn-line") }}
+      </div>
+    </aside>
+  </div>
+</section>

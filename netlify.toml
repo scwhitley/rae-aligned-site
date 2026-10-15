@@ -1,6 +1,16 @@
-# Static site: no build step. Netlify serves the repo root as-is.
+# Eleventy builds src/ into _site/ on every push.
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Old draft URLs
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301
 
 [[headers]]
   for = "/*"
@@ -10,11 +20,6 @@
     X-Frame-Options = "SAMEORIGIN"
 
 [[headers]]
-  for = "/css/*"
+  for = "/assets/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"

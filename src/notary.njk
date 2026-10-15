@@ -1,0 +1,151 @@
+---
+layout: layouts/base.njk
+permalink: /notary/
+title: "Mobile Notary Raleigh–Durham | RaeAligned Signing Solutions"
+description: "Commissioned North Carolina notary public serving Raleigh, Durham, Cary and surrounding areas. Mobile appointments for individuals, families, and businesses. North Carolina statutory fees."
+accent: orchid
+schema:
+  - "@context": "https://schema.org"
+    "@type": ProfessionalService
+    "@id": "https://raealignedservices.com/notary/#notary"
+    name: RaeAligned Signing Solutions
+    alternateName: "RaeAligned Signing Solutions: Mobile Notary, Raleigh–Durham"
+    description: "Mobile notary public serving Raleigh, Durham, Cary, Chapel Hill, Apex, Morrisville and surrounding areas of North Carolina, by appointment."
+    url: "https://raealignedservices.com/notary/"
+    email: notary@raealignedservices.com
+    image: "https://raealignedservices.com/favicon-512x512.png"
+    parentOrganization: { "@id": "https://raealignedservices.com/#business" }
+    serviceType: ["Mobile notary", "Notary public", "Acknowledgment", "Jurat", "Oath or affirmation"]
+    areaServed:
+      - { "@type": City, name: "Raleigh, NC" }
+      - { "@type": City, name: "Durham, NC" }
+      - { "@type": City, name: "Cary, NC" }
+      - { "@type": City, name: "Chapel Hill, NC" }
+      - { "@type": City, name: "Apex, NC" }
+      - { "@type": City, name: "Morrisville, NC" }
+    makesOffer:
+      - { "@type": Offer, name: "Acknowledgment, jurat, verification, or proof", price: "10.00", priceCurrency: USD, description: "Per signature (North Carolina statutory fee)" }
+      - { "@type": Offer, name: "Oath or affirmation", price: "10.00", priceCurrency: USD, description: "Per person (North Carolina statutory fee)" }
+---
+{% import "partials/components.njk" as c with context %}
+
+<section class="hero notary-hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <img class="division-lockup" src="/assets/logos/signing-wordmark-primary.svg" alt="{{ site.division }}: Notary &amp; Signing Services" width="857" height="352">
+      <h1>Need something notarized?</h1>
+      <p class="lede">I'm a commissioned North Carolina notary public serving the Raleigh–Durham area. By appointment, and I come to you.</p>
+      <div class="actions">
+        {{ c.booking("notary", "Book an appointment", "btn-orchid") }}
+      </div>
+      <p class="hero-email">Or email <a href="mailto:{{ site.notaryEmail }}">{{ site.notaryEmail }}</a></p>
+    </div>
+    {#- Reserved for a working-detail image from the shoot (dummy document only, never a real client's). -#}
+    {{ c.photoSlot("4 / 5", "aubergine") }}
+  </div>
+</section>
+
+<section class="band band-aubergine" aria-labelledby="scope-h">
+  <div class="wrap">
+    <h2 id="scope-h" class="sec-title">What a notary can and can't do</h2>
+    {{ c.complianceBlock() }}
+  </div>
+</section>
+
+<section class="band" aria-labelledby="bring-h">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow">Before your appointment</p>
+      <h2 id="bring-h">What to bring</h2>
+      <ul class="check-list">
+        <li>A valid, unexpired photo ID</li>
+        <li><span>Your document, <strong>unsigned</strong>. I have to watch you sign it.</span></li>
+        <li>Everyone who needs to sign, present at the appointment</li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Fees</p>
+      <h2 id="fees-h">North Carolina sets notary fees by law</h2>
+      <div class="table-wrap">
+        <table class="fees">
+          <caption class="sr-only">Notary fees</caption>
+          <thead><tr><th scope="col">Service</th><th scope="col">Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Acknowledgment, jurat, verification, proof</td><td>$10.00 per signature</td></tr>
+            <tr><td>Oath or affirmation</td><td>$10.00 per person</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="travel"><b>Travel.</b> If I come to you, travel is billed at actual mileage at the current federal business mileage rate. You agree to it in writing before the appointment. That's a North Carolina requirement, not a preference.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-stone" aria-labelledby="area-h">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow">Service area</p>
+      <h2 id="area-h">Where I travel</h2>
+      <ul class="areas">
+        {%- for a in areas %}<li>{{ a }}</li>{% endfor %}
+        <li>and surrounding areas</li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Who I work with</p>
+      <h2>Individuals, families, businesses, and organizations</h2>
+      <p>Estate paperwork, affidavits, powers of attorney, consent forms, business documents, and more.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="book" aria-labelledby="req-h">
+  <div class="wrap form-grid">
+    <div class="form-intro">
+      <p class="eyebrow">Book a signing</p>
+      <h2 id="req-h">Request a notary appointment</h2>
+      <p>Send the details below and I'll confirm a time, usually within one business day. Every field marked required helps me arrive prepared.</p>
+      {%- if site.booking.notary.url %}
+      <p>Prefer to pick a time yourself?</p>
+      {{ c.booking("notary", "Open the booking calendar", "btn-orchid") }}
+      {%- endif %}
+      <p class="small">Questions first? Email <a href="mailto:{{ site.notaryEmail }}">{{ site.notaryEmail }}</a>.</p>
+    </div>
+
+    <form class="form" id="notary-request" name="notary-request" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="notary-request">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+
+      <div class="field"><label for="n-name">Full name <span class="req">required</span></label><input id="n-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="n-email">Email <span class="req">required</span></label><input id="n-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="n-phone">Phone</label><input id="n-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="n-when">Preferred date and time</label><input id="n-when" name="preferred_time" placeholder="e.g. Thursday afternoon"></div>
+      <div class="field full"><label for="n-address">Full address where the signing will take place <span class="req">required</span></label><input id="n-address" name="signing_address" autocomplete="street-address" required></div>
+      <div class="field full"><label for="n-doc">Type of document <span class="req">required</span></label><input id="n-doc" name="document_type" placeholder="e.g. affidavit, power of attorney, consent form" required></div>
+      <div class="field"><label for="n-sigs">Number of signatures <span class="req">required</span></label><input id="n-sigs" name="signatures" type="number" min="1" inputmode="numeric" required></div>
+      <div class="field"><label for="n-signers">Number of signers <span class="req">required</span></label><input id="n-signers" name="signers" type="number" min="1" inputmode="numeric" required></div>
+      <div class="field full"><label for="n-notes">Anything else I should know</label><textarea id="n-notes" name="notes" rows="3"></textarea></div>
+
+      <div class="check full"><input id="n-id" name="id_confirmed" type="checkbox" value="yes" required><label for="n-id">All signers will have valid, unexpired photo ID. <span class="req">required</span></label></div>
+      <div class="check full"><input id="n-travel" name="travel_agreement" type="checkbox" value="I agree" required><label for="n-travel">I understand travel to my location is billed at actual mileage at the current federal business mileage rate, agreed in advance. I agree to this charge. <span class="req">required</span></label></div>
+
+      <p class="full small">By sending this form you agree to the <a href="/privacy/">privacy policy</a>. I use your details only to arrange your appointment.</p>
+      <div class="form-foot full">
+        <button class="btn btn-dark" type="submit">Send request</button>
+        <p class="form-error" role="alert"></p>
+      </div>
+      <p class="form-done full" role="status" hidden>Thanks. I'll get back to you within one business day to confirm your appointment.</p>
+    </form>
+  </div>
+</section>
+
+<section class="band band-stone" aria-labelledby="faq-h">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-h">Common questions</h2>
+    <div class="faqs">
+      {%- for f in faqs.notary %}
+      <details class="faq"><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
