@@ -1,0 +1,23 @@
+{
+  "_README": "Links shown on /links (the Instagram link-in-bio page). Edit labels, notes or urls, reorder, or delete items. 'primary' items are the two big buttons at the top.",
+  "primary": [
+    {
+      "label": "Book a consultation",
+      "note": "Strategy, projects, AI, planning, and systems",
+      "url": "BOOKING_CONSULTING",
+      "style": "ink"
+    },
+    {
+      "label": "Book a notary signing",
+      "note": "Mobile notary across Raleigh–Durham, by appointment",
+      "url": "/notary/#book",
+      "style": "aubergine"
+    }
+  ],
+  "more": [
+    { "label": "What I help with", "note": "Services and ways to work together", "url": "/services/" },
+    { "label": "Notary fees & what to bring", "note": "North Carolina statutory fees", "url": "/notary/" },
+    { "label": "About Raven", "note": "M.Ed., PMP, CSM®", "url": "/about/" },
+    { "label": "Send me a message", "note": "I reply within one business day", "url": "/contact/" }
+  ]
+}

@@ -24,11 +24,11 @@
 </head>
 <body class="theme-{{ accent or 'copper' }}">
 <a class="skip" href="#main">Skip to content</a>
-{% include "partials/header.njk" %}
+{% if not bare %}{% include "partials/header.njk" %}{% endif %}
 <main id="main">
 {{ content | safe }}
 </main>
-{% include "partials/footer.njk" %}
+{% if not bare %}{% include "partials/footer.njk" %}{% endif %}
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
