@@ -1,0 +1,84 @@
+{% import "partials/components.njk" as c with context %}
+<div class="mc">
+  <img class="mc-division" src="/assets/logos/signing-wordmark-primary.svg" alt="{{ site.division }}: Notary &amp; Signing Services" width="857" height="352">
+  <p class="mc-lede">I'm a commissioned North Carolina notary public serving the Raleigh–Durham area. By appointment, and I come to you.</p>
+  <div class="actions" style="margin-top:0">
+    <a class="btn btn-orchid" href="#notary-request" data-scroll>Request an appointment</a>
+  </div>
+
+  <section class="mc-scope" aria-labelledby="scope-h">
+    <h3 id="scope-h">What a notary can and can't do</h3>
+    {{ c.complianceBlock() }}
+  </section>
+
+  <section class="mc-block">
+    <h3>What to bring</h3>
+    <ul class="check-list">
+      <li>A valid, unexpired photo ID</li>
+      <li><span>Your document, <strong>unsigned</strong>. I have to watch you sign it.</span></li>
+      <li>Everyone who needs to sign, present at the appointment</li>
+    </ul>
+  </section>
+
+  <section class="mc-block">
+    <h3>Fees: North Carolina sets notary fees by law</h3>
+    <div class="table-wrap">
+      <table class="fees">
+        <caption class="sr-only">Notary fees</caption>
+        <thead><tr><th scope="col">Service</th><th scope="col">Fee</th></tr></thead>
+        <tbody>
+          <tr><td>Acknowledgment, jurat, verification, proof</td><td>$10.00 per signature</td></tr>
+          <tr><td>Oath or affirmation</td><td>$10.00 per person</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="travel"><b>Travel.</b> If I come to you, travel is billed at actual mileage at the current federal business mileage rate. You agree to it in writing before the appointment. That's a North Carolina requirement, not a preference.</p>
+  </section>
+
+  <section class="mc-block">
+    <h3>Where I travel</h3>
+    <ul class="areas">
+      {%- for a in areas %}<li>{{ a }}</li>{% endfor %}
+      <li>and surrounding areas</li>
+    </ul>
+    <p class="mc-note">Individuals, families, businesses, and organizations: estate paperwork, affidavits, powers of attorney, consent forms, business documents, and more.</p>
+  </section>
+
+  <section class="mc-block" aria-labelledby="req-h">
+    <h3 id="req-h">Request a notary appointment</h3>
+    <p class="mc-note">Send the details below and I'll confirm a time, usually within one business day.{% if site.booking.notary.url %} Prefer to pick a time yourself? <a href="{{ site.booking.notary.url }}" target="_blank" rel="noopener">Open the booking calendar</a>.{% endif %} Questions first? Email <a href="mailto:{{ site.notaryEmail }}">{{ site.notaryEmail }}</a>.</p>
+    <form class="form" id="notary-request" name="notary-request" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="notary-request">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+
+      <div class="field"><label for="n-name">Full name <span class="req">required</span></label><input id="n-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="n-email">Email <span class="req">required</span></label><input id="n-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="n-phone">Phone</label><input id="n-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="n-when">Preferred date and time</label><input id="n-when" name="preferred_time" placeholder="e.g. Thursday afternoon"></div>
+      <div class="field full"><label for="n-address">Full address where the signing will take place <span class="req">required</span></label><input id="n-address" name="signing_address" autocomplete="street-address" required></div>
+      <div class="field full"><label for="n-doc">Type of document <span class="req">required</span></label><input id="n-doc" name="document_type" placeholder="e.g. affidavit, power of attorney, consent form" required></div>
+      <div class="field"><label for="n-sigs">Number of signatures <span class="req">required</span></label><input id="n-sigs" name="signatures" type="number" min="1" inputmode="numeric" required></div>
+      <div class="field"><label for="n-signers">Number of signers <span class="req">required</span></label><input id="n-signers" name="signers" type="number" min="1" inputmode="numeric" required></div>
+      <div class="field full"><label for="n-notes">Anything else I should know</label><textarea id="n-notes" name="notes" rows="3"></textarea></div>
+
+      <div class="check full"><input id="n-id" name="id_confirmed" type="checkbox" value="yes" required><label for="n-id">All signers will have valid, unexpired photo ID. <span class="req">required</span></label></div>
+      <div class="check full"><input id="n-travel" name="travel_agreement" type="checkbox" value="I agree" required><label for="n-travel">I understand travel to my location is billed at actual mileage at the current federal business mileage rate, agreed in advance. I agree to this charge. <span class="req">required</span></label></div>
+
+      <p class="full small">By sending this form you agree to the <a href="/privacy/" data-modal="privacy">privacy policy</a>. I use your details only to arrange your appointment.</p>
+      <div class="form-foot full">
+        <button class="btn btn-dark" type="submit">Send request</button>
+        <p class="form-error" role="alert"></p>
+      </div>
+      <p class="form-done full" role="status" hidden>Thanks. I'll get back to you within one business day to confirm your appointment.</p>
+    </form>
+  </section>
+
+  <section class="mc-block">
+    <h3>Common questions</h3>
+    <div class="faqs">
+      {%- for f in faqs.notary %}
+      <details class="faq"><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+      {%- endfor %}
+    </div>
+  </section>
+</div>

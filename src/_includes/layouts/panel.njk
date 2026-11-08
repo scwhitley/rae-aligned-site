@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+bare: true
+---
+{#- Standalone version of a homepage panel: used for direct links, search engines, and browsers without JavaScript. -#}
+<div class="panel-page">
+  <a class="panel-back" href="/"><img src="/assets/logos/raealigned-icon-only.svg" alt="" width="516" height="406"><span>Back to RaeAligned</span></a>
+  <h1>{{ heading or title }}</h1>
+  {{ content | safe }}
+  {% include "partials/mini-footer.njk" %}
+</div>

@@ -6,15 +6,12 @@ Every push to `main` rebuilds and republishes the site automatically.
 
 ## Pages
 
-| URL | File |
-| --- | --- |
-| `/` Home | `src/index.njk` |
-| `/about/` | `src/about.njk` |
-| `/services/` | `src/services.njk` |
-| `/notary/` Signing Solutions | `src/notary.njk` |
-| `/contact/` | `src/contact.njk` |
-| `/privacy/` (awaiting final text) | `src/privacy.njk` |
-| `/thanks/`, `/404.html` | form confirmation and not-found page |
+The homepage (`src/index.njk`) is a single link-style page. Its links open pop-up panels instead of new pages:
+Services, Notary, About, Contact, and Privacy. Each panel's content lives once in `src/_includes/content/`
+and is reused by a standalone page (`/services/`, `/notary/`, `/about/`, `/contact/`, `/privacy/`) for direct
+links, search engines, and browsers without JavaScript. A link to `raealignedservices.com/#notary` opens that panel.
+
+Homepage links and button labels are edited in `src/_data/links.json`.
 
 ## Everyday edits (no code needed)
 

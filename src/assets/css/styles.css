@@ -353,3 +353,61 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#9B2C4A}
 @media (prefers-reduced-motion:reduce){.lp-big:hover{transform:none}}
 .lp-pages{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
 .lp-pages a{font-weight:500;color:var(--ra-ink);text-decoration:none;border-bottom:1px solid var(--ra-lavender)}
+
+/* ---- Pop-up panels (homepage) and standalone panel pages ---- */
+.modal{padding:0;border:0;background:transparent;color:var(--ra-ink);width:calc(100% - 32px);max-width:720px;max-height:calc(100dvh - 48px);overflow:visible}
+.modal::backdrop{background:rgba(30,29,40,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.modal-card{display:flex;flex-direction:column;max-height:calc(100dvh - 48px);background:var(--ra-ivory);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(30,29,40,.28)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 16px 16px 24px;border-bottom:1px solid var(--rule);flex:none}
+.modal-head h2{font-size:1.6rem}
+.modal-close{width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--ra-tint-lavender);color:var(--ra-ink);cursor:pointer;flex:none}
+.modal-close:hover{background:#DCD8EC}
+.modal-close svg{width:20px;height:20px}
+.modal-body{overflow-y:auto;overscroll-behavior:contain;padding:24px 24px 32px;-webkit-overflow-scrolling:touch}
+.modal[open] .modal-card{animation:modal-in .22s cubic-bezier(.2,.7,.2,1)}
+@keyframes modal-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+html.modal-open{overflow:hidden}
+@media (max-width:600px){
+  .modal{width:100%;max-width:100%;margin:auto 0 0;max-height:94dvh}
+  .modal-card{max-height:94dvh;border-radius:18px 18px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .modal[open] .modal-card{animation-name:sheet-in}
+  .modal-body{padding:20px 20px 28px}
+}
+@keyframes sheet-in{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+
+.panel-page{max-width:720px;margin-inline:auto;padding:28px 20px 40px;display:grid;gap:24px}
+.panel-back{display:inline-flex;align-items:center;gap:12px;justify-self:start;text-decoration:none;font-size:.875rem;font-weight:500}
+.panel-back img{width:44px;height:auto}
+.panel-page h1{font-size:clamp(2.1rem,6vw,2.75rem)}
+
+/* Shared panel content */
+.mc{display:grid;gap:28px;min-width:0}
+.mc-lede{font-size:1.0625rem;color:var(--text-muted);max-width:56ch}
+.mc-strong{font-weight:500}
+.mc-note{font-size:var(--fs-small);color:var(--text-muted)}
+.mc-block{display:grid;gap:14px;padding-top:24px;border-top:1px solid var(--rule);min-width:0}
+.mc h3{font-size:1.3rem}
+.mc-svc{display:grid;gap:0}
+.mc-svc-item{display:grid;gap:10px;padding-block:22px;border-top:1px solid var(--rule)}
+.mc-svc-item:first-child{border-top:0;padding-top:0}
+.mc-svc-item p:not(.mc-strong):not(.fit){color:var(--text-muted)}
+.mc-svc-item .text-link{justify-self:start;margin-top:0}
+.mc-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.mc-list li{padding-left:22px;position:relative;color:var(--text-muted)}
+.mc-list li::before{content:"";position:absolute;left:0;top:.75em;width:12px;height:1px;background:var(--ra-lavender)}
+.mc-list b{color:var(--ra-ink);font-weight:500}
+.mc-prose{display:grid;gap:16px;max-width:64ch}
+.mc-prose h3{margin-top:8px}
+.mc-creds{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mc-creds dt{font-family:var(--font-display);font-size:1.2rem}
+.mc-creds dd{margin:0;font-size:var(--fs-small);color:var(--text-muted)}
+.mc-direct{margin:0;display:grid;gap:16px;padding-top:24px;border-top:1px solid var(--rule)}
+.mc-direct dt{font-size:var(--fs-eyebrow);font-weight:500;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-muted)}
+.mc-direct dd{margin:2px 0 0;overflow-wrap:anywhere}
+.mc-division{width:min(320px,100%);margin-left:-8px}
+.mc-scope{background:var(--ss-aubergine);color:var(--ra-ivory);border-radius:14px;padding:24px;display:grid;gap:18px}
+.mc-scope h3{color:var(--ra-ivory)}
+.mc-scope .boundary{margin-top:0}
+.mc .actions{margin-top:0}
+.mc .form{grid-template-columns:1fr 1fr}
+@media (max-width:520px){.mc .form{grid-template-columns:1fr}.mc-creds{grid-template-columns:1fr}.mc-scope{padding:18px}}

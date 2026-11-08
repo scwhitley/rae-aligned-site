@@ -1,0 +1,30 @@
+{% import "partials/components.njk" as c with context %}
+<div class="mc">
+  <p class="mc-lede">Tell me what you're trying to move and what's in the way. That's the whole first conversation.</p>
+
+  <form class="form" id="contact" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="contact">
+    <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+    <div class="field"><label for="c-name">Name <span class="req">required</span></label><input id="c-name" name="name" autocomplete="name" required></div>
+    <div class="field"><label for="c-email">Email <span class="req">required</span></label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel"></div>
+    <div class="field"><label for="c-topic">What can I help with?</label>
+      <select id="c-topic" name="topic">
+        <option>Strategy</option><option>Projects</option><option>AI</option><option>Planning</option><option>Systems</option><option>Notary</option><option selected>Not sure</option>
+      </select>
+    </div>
+    <div class="field full"><label for="c-msg">Tell me about it <span class="req">required</span></label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+    <p class="full small">By sending this form you agree to the <a href="/privacy/" data-modal="privacy">privacy policy</a>. Booking a notary appointment? Use the <a href="/notary/" data-modal="notary">notary request form</a> so I have everything I need.</p>
+    <div class="form-foot full">
+      <button class="btn btn-dark" type="submit">Send</button>
+      <p class="form-error" role="alert"></p>
+    </div>
+    <p class="form-done full" role="status" hidden>Thanks. I'll get back to you within one business day.</p>
+  </form>
+
+  <dl class="mc-direct">
+    <div><dt>General inquiries</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+    <div><dt>Notary appointments</dt><dd><a href="mailto:{{ site.notaryEmail }}">{{ site.notaryEmail }}</a></dd></div>
+    <div><dt>Service area</dt><dd>Raleigh–Durham and surrounding areas, North Carolina</dd></div>
+  </dl>
+</div>

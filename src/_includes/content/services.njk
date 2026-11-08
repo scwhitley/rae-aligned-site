@@ -1,0 +1,31 @@
+{% import "partials/components.njk" as c with context %}
+<div class="mc">
+  <p class="mc-lede">Six ways to get important work moving. Most clients start with one.</p>
+
+  <div class="mc-svc">
+    {%- for s in services %}
+    <article class="mc-svc-item">
+      <h3>{{ s.name }}</h3>
+      <p class="mc-strong">{{ s.summary }}</p>
+      {%- if s.detail %}<p>{{ s.detail }}</p>{% endif %}
+      {%- if s.goodFit %}<p class="fit"><b>Good fit if</b> {{ s.goodFit }}</p>{% endif %}
+      {%- if s.link %}<a class="text-link" href="/notary/" data-modal="notary">Notary fees and booking</a>{% endif %}
+    </article>
+    {%- endfor %}
+  </div>
+
+  <section class="mc-block">
+    <h3>Ways to work together</h3>
+    <ul class="mc-list">
+      <li><b>A single session.</b> Two hours, one focused problem, and a clean one-page plan you leave with.</li>
+      <li><b>A project.</b> Defined work, a defined outcome, and a timeline.</li>
+      <li><b>Ongoing support.</b> Regular time each month for planning, coordination, and keeping work moving.</li>
+    </ul>
+    <p class="mc-note">Engagements range from a single two-hour session to ongoing monthly support. I'll give you a clear price after we talk about what you need. No packages you have to squeeze into.</p>
+  </section>
+
+  <div class="actions">
+    {{ c.booking("consulting", "Book a consultation", "btn-dark") }}
+    <a class="btn btn-line" href="/contact/" data-modal="contact">Send a message</a>
+  </div>
+</div>

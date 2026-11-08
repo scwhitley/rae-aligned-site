@@ -50,7 +50,7 @@ schema:
   <section class="lp-primary" aria-label="Book">
     {%- for l in links.primary %}
     {%- set href = site.booking.consulting.url if l.url == "BOOKING_CONSULTING" else l.url %}
-    <a class="lp-big lp-{{ l.style }}" href="{{ href }}"{% if href.startsWith("http") %} target="_blank" rel="noopener"{% endif %}>
+    <a class="lp-big lp-{{ l.style }}" href="{{ href }}"{% if l.modal %} data-modal="{{ l.modal }}"{% endif %}{% if href.startsWith("http") %} target="_blank" rel="noopener"{% endif %}>
       <span class="lp-big-label">{{ l.label }}</span>
       <span class="lp-big-note">{{ l.note }}</span>
       <span class="lp-arrow" aria-hidden="true">→</span>
@@ -62,15 +62,33 @@ schema:
     <h2 id="lp-more-h">More from RaeAligned</h2>
     <ul>
       {%- for l in links.more %}
-      <li><a href="{{ l.url }}"{% if l.url.startsWith("http") %} target="_blank" rel="noopener"{% endif %}><span><b>{{ l.label }}</b><small>{{ l.note }}</small></span><span class="lp-arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="{{ l.url }}"{% if l.modal %} data-modal="{{ l.modal }}"{% endif %}{% if l.url.startsWith("http") %} target="_blank" rel="noopener"{% endif %}><span><b>{{ l.label }}</b><small>{{ l.note }}</small></span><span class="lp-arrow" aria-hidden="true">→</span></a></li>
       {%- endfor %}
     </ul>
   </section>
 
-  <footer class="lp-foot">
-    <img src="/assets/logos/raealigned-icon-only.svg" alt="" width="516" height="406">
-    <nav class="lp-pages" aria-label="Pages"><a href="/services/">Services</a><a href="/notary/">Notary</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></nav>
-    <p>{{ site.notaryDisclaimer }}</p>
-    <p>{{ site.legalLine }}</p>
-  </footer>
+  {% include "partials/mini-footer.njk" %}
 </div>
+
+{%- set panels = [
+  { id: "services", title: "What I help with" },
+  { id: "notary", title: "Notary & signing" },
+  { id: "about", title: "Hi, I'm Raven" },
+  { id: "contact", title: "Let's talk" },
+  { id: "privacy", title: "Privacy policy" }
+] %}
+{%- for p in panels %}
+<dialog class="modal{% if p.id == 'notary' %} theme-orchid{% endif %}" id="m-{{ p.id }}" aria-labelledby="m-{{ p.id }}-h">
+  <div class="modal-card">
+    <header class="modal-head">
+      <h2 id="m-{{ p.id }}-h">{{ p.title }}</h2>
+      <button class="modal-close" type="button" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      {% include "content/" + p.id + ".njk" %}
+    </div>
+  </div>
+</dialog>
+{%- endfor %}
