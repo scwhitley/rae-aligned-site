@@ -351,3 +351,5 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#9B2C4A}
 .lp-foot a{font-weight:500;color:var(--ra-ink)}
 .lp-foot p{max-width:40ch}
 @media (prefers-reduced-motion:reduce){.lp-big:hover{transform:none}}
+.lp-pages{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.lp-pages a{font-weight:500;color:var(--ra-ink);text-decoration:none;border-bottom:1px solid var(--ra-lavender)}

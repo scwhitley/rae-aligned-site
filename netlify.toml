@@ -6,7 +6,17 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Old draft URLs
+# Old URLs
+[[redirects]]
+  from = "/links"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/links/"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/home.html"
   to = "/"
