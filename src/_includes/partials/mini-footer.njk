@@ -7,6 +7,6 @@
     <a href="/contact/" data-modal="contact">Contact</a>
     <a href="/privacy/" data-modal="privacy">Privacy</a>
   </nav>
-  <p>{{ site.notaryDisclaimer }}</p>
+  <p>{{ site.notaryDisclaimer }}{% if site.llcApproved %} {{ site.division }} is {{ site.divisionEndorsement | lower }}.{% endif %}</p>
   <p>{{ site.legalLine }}</p>
 </footer>
