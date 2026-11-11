@@ -12,6 +12,7 @@
   "notaryEmail": "notary@raealignedservices.com",
   "instagram": "raealigned.services",
   "instagramUrl": "https://www.instagram.com/raealigned.services/",
+  "facebookUrl": "https://www.facebook.com/1437150769475449",
 
   "_LLC_NOTE": "LLC is NOT approved yet. When the state approves it: set llcApproved to true and change legalLine to '© 2026 RaeAligned Strategic Services LLC. All rights reserved.' Nothing else needs to change.",
   "llcApproved": false,

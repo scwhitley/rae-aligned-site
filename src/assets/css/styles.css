@@ -411,3 +411,4 @@ html.modal-open{overflow:hidden}
 .mc .actions{margin-top:0}
 .mc .form{grid-template-columns:1fr 1fr}
 @media (max-width:520px){.mc .form{grid-template-columns:1fr}.mc-creds{grid-template-columns:1fr}.mc-scope{padding:18px}}
+.lp-social{flex-wrap:wrap;justify-content:center}
